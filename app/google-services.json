@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1088772917928",
+    "firebase_url": "https://testapplication-7cc4e.firebaseio.com",
+    "project_id": "testapplication-7cc4e",
+    "storage_bucket": "testapplication-7cc4e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088772917928:android:cf0f7f54e35d730922d09d",
+        "android_client_info": {
+          "package_name": "com.onlineapteka.testapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1088772917928-3jnnc4m0v5flqjhhiddgpu1s2adm312k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-JqODQLS201TjJULiznU9S23wf2kcwQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1088772917928-3jnnc4m0v5flqjhhiddgpu1s2adm312k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
