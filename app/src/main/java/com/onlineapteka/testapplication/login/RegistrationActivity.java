@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.arch.core.executor.TaskExecutor;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -27,8 +28,11 @@ import com.onlineapteka.testapplication.R;
 
 import java.util.concurrent.TimeUnit;
 
-public class VerifyPhoneActivity extends AppCompatActivity {
+public class RegistrationActivity extends AppCompatActivity {
 
+    public static void start(Context context){
+        context.startActivity(new Intent(context,RegistrationActivity.class));
+    }
 
 
     @Override

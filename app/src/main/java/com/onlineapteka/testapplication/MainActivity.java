@@ -2,12 +2,10 @@ package com.onlineapteka.testapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.onlineapteka.testapplication.login.PhoneActivity;
+import com.onlineapteka.testapplication.login.AuthActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,7 +13,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setSplashScreenTime();
+    }
 
+    private void setSplashScreenTime() {
+        new CountDownTimer(3000,100){
 
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                getRegistrationActivity();
+            }
+        }.start();
+    }
+
+    private void getRegistrationActivity() {
+        AuthActivity.start(this);
+        finish();
     }
 }
