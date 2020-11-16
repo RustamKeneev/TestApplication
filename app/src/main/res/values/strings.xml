@@ -22,4 +22,10 @@
     <string name="enter_your_phone_number">Введите номер телефона</string>
     <string name="continue_text">Продолжить</string>
     <string name="auth_text">Авторизируясь в приложении, вы принимаете условия лицензионного соглашения и политики конфиденциальности</string>
+    <string name="verify_code_text">Подтвердите ваш номер телефона</string>
+    <string name="sms_text">Введите код подтверждения из смс-сообщения</string>
+    <string name="text_back">Назад</string>
+    <string name="verify_sms_code_text">Подтвердить</string>
+    <string name="verify_sms_code_toolbar">Подтверждения смс кода</string>
+    <string name="next_text">Далее</string>
 </resources>

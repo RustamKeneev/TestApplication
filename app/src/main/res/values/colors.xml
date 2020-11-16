@@ -6,6 +6,7 @@
     <color name="colorRed">#D50000</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorGrey">#E5E5E5</color>
+    <color name="colorGreyToAuth">#EBEBEB</color>
     <color name="colorGreyLight">#F9F9F9</color>
     <color name="colorGreyLightOne">#EFEFEF</color>
     <color name="colorGreyText">#A6A6A6</color>
