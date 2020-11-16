@@ -3,7 +3,25 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
-    <color name="colorSplash">#FFFFFF</color>
-    <color name="colorEditTextStroke">#010850</color>
-    <color name="edit_text_code_stroke">#010850</color>
+    <color name="colorRed">#D50000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGrey">#E5E5E5</color>
+    <color name="colorGreyLight">#F9F9F9</color>
+    <color name="colorGreyLightOne">#EFEFEF</color>
+    <color name="colorGreyText">#A6A6A6</color>
+    <color name="colorPink">#881E91E9</color>
+    <color name="colorBlue">#4486F1</color>
+    <color name="colorBlack">#141414</color>
+    <color name="colorGreen">#02C697</color>
+    <color name="colorGreyDark">#817B86</color>
+    <color name="colorGreyUnSelected">#CCCCCC</color>
+    <color name="colorTextDefaultApp">#412854</color>
+    <color name="colorTextGreenDefaultApp">#68DA23</color>
+    <color name="colorBackGround">#E5E5E5</color>
+    <color name="colorGreyDrugDescriptionTitle">#D9D9D9</color>
+    <color name="colorBlackDrugDescriptionText">#141414</color>
+    <color name="colorGreyDrugDetailTitle">#9A9A9A</color>
+
+    <color name="scrollBackground">#3F51B5</color>
+    <color name="colorGreenLight">#02C193</color>
 </resources>

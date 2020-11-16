@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.onlineapteka.testapplication.R;
 
-public class RegistrationActivity extends AppCompatActivity {
+public class VerifyCodeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registration);
+        setContentView(R.layout.activity_verify_code);
     }
 }

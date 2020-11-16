@@ -1,4 +1,21 @@
 <resources>
     <string name="app_name">TestApplication</string>
-    <string name="phone_number">Phone Number</string>
+    <string name="main_text">Подтвердите ваш номер телефона</string>
+    <string name="main_auth_text">Добро пожаловать в"\n" "\"Автовокзал онлайн\"" </string>
+    <string name="country_code">+996</string>
+    <string name="phone_number">555123321</string>
+    <string name="back_button">НАЗАД</string>
+    <string name="forward_button">ДАЛЕЕ</string>
+    <string name="reg_button">РЕГИСТРАЦИЯ</string>
+    <string name="sign_out">Sign out</string>
+    <string name="tel_text">код подтверждения</string>
+    <string name="trip_id">id</string>
+    <string name="trip_date">date</string>
+    <string name="trip_price">price</string>
+    <string name="trip_from">from</string>
+    <string name="trip_to">to</string>
+    <string name="phone_number_text">номер телефона</string>
+    <string name="mess">Сообщение</string>
+    <string name="_12_33">12:33</string>
+    <string name="save_button">Сохранить</string>
 </resources>

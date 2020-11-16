@@ -4,6 +4,11 @@
     package="com.onlineapteka.testapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".App"
@@ -14,11 +19,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="ExtraText">
-        tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ProfileActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".login.RegistrationActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".login.AuthActivity" android:screenOrientation="portrait" />
-        <activity android:name=".MainActivity" android:screenOrientation="portrait">
+        <activity android:name=".login.VerifyCodeActivity"></activity>
+        <activity android:name=".login.RegistrationActivity" />
+        <activity android:name=".login.PhoneAuthActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
