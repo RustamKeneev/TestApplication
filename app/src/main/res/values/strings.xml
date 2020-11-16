@@ -19,4 +19,7 @@
     <string name="_12_33">12:33</string>
     <string name="save_button">Сохранить</string>
     <string name="sign_app_text">Войдите в приложение</string>
+    <string name="enter_your_phone_number">Введите номер телефона</string>
+    <string name="continue_text">Продолжить</string>
+    <string name="auth_text">Авторизируясь в приложении, вы принимаете условия лицензионного соглашения и политики конфиденциальности</string>
 </resources>

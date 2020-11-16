@@ -5,11 +5,95 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorGrey"
+    android:background="@color/colorGreyLight"
     tools:context=".login.PhoneAuthActivity">
 
     <include
         android:id="@+id/toolbar_auth_include"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         layout="@layout/toolbar_auth"/>
+
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_width="116dp"
+        android:layout_height="116dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_auth_include"
+        app:layout_constraintLeft_toLeftOf="@id/toolbar_auth_include"
+        app:layout_constraintRight_toRightOf="@id/toolbar_auth_include"
+        app:layout_constraintBottom_toTopOf="@id/enter_your_phone_number_text"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/ic_logotype_auth"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/enter_your_phone_number_text"
+        app:layout_constraintTop_toBottomOf="@id/logo_image"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="@dimen/margin_16"
+        android:layout_marginRight="@dimen/margin_16"
+        android:layout_marginTop="36dp"
+        android:textSize="18sp"
+        android:fontFamily="@font/gilroy_regular"
+        android:textColor="@color/colorBlack"
+        android:text="@string/enter_your_phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/phone_number_edit"
+        android:hint="+996"
+        android:inputType="phone"
+        app:layout_constraintTop_toBottomOf="@id/enter_your_phone_number_text"
+        app:layout_constraintLeft_toLeftOf="@id/enter_your_phone_number_text"
+        app:layout_constraintRight_toRightOf="@id/enter_your_phone_number_text"
+        android:layout_marginTop="@dimen/margin_16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/phone_image"
+        app:layout_constraintTop_toTopOf="@id/phone_number_edit"
+        app:layout_constraintBottom_toBottomOf="@id/phone_number_edit"
+        app:layout_constraintRight_toRightOf="@id/phone_number_edit"
+        android:padding="@dimen/margin_8"
+        android:src="@drawable/ic_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/continue_register_phone_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/continue_text"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="@font/gilroy_regular"
+        app:layout_constraintLeft_toLeftOf="@id/phone_number_edit"
+        app:layout_constraintRight_toRightOf="@id/phone_number_edit"
+        app:layout_constraintTop_toBottomOf="@id/phone_number_edit"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_background"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/config_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/continue_register_phone_button"
+        app:layout_constraintRight_toRightOf="@id/continue_register_phone_button"
+        android:text="@string/auth_text"
+        android:textSize="14sp"
+        android:fontFamily="@font/gilroy_regular"
+        android:layout_margin="46dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_gravity="center_horizontal" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
