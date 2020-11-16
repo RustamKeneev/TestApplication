@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="padding_top_12">12dp</dimen>
+    <dimen name="padding_top_16">16dp</dimen>
+    <dimen name="padding_bottom_16">16dp</dimen>
+    <dimen name="padding_right_24">24dp</dimen>
+    <dimen name="padding_left_24">24dp</dimen>
+    <dimen name="padding_24">24dp</dimen>
+
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_4">4dp</dimen>
+    <dimen name="margin_2">2dp</dimen>
+    <dimen name="margin_top_8">8dp</dimen>
+    <dimen name="margin_top_12">12dp</dimen>
+    <dimen name="margin_left_8">8dp</dimen>
+    <dimen name="margin_left_24">12dp</dimen>
+    <dimen name="margin_right_8">8dp</dimen>
+    <dimen name="margin_right_24">12dp</dimen>
+    <dimen name="margin_bottom_24">24dp</dimen>
+    <dimen name="margin_left_128">128dp</dimen>
+    <dimen name="margin_top_4dp">4dp</dimen>
+
+    <dimen name="piv_radius_6">6dp</dimen>
+    <dimen name="piv_padding_12">12dp</dimen>
+
+    <dimen name="text_size_20">20sp</dimen>
+
+    <dimen name="margin_start_text_from_image">7dp</dimen>
+    <dimen name="margin_top_text">11dp</dimen>
+    <dimen name="margin_top_cardview">6dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+</resources>
