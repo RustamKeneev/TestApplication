@@ -2,7 +2,9 @@ package com.onlineapteka.testapplication.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -32,6 +34,19 @@ public class VerifyCodeActivity extends AppCompatActivity {
         mVerifyProgressBar = findViewById(R.id.verify_progress_bar);
         mNextButton = findViewById(R.id.next_button);
 
+        mButtonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(VerifyCodeActivity.this,PhoneAuthActivity.class));
+                finish();
+            }
+        });
 
+        mNextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO after verify sms code we must to go Registration Activity
+            }
+        });
     }
 }
