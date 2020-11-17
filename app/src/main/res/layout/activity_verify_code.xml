@@ -111,7 +111,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:visibility="invisible"
         android:text="@string/next_text"
         android:textColor="@color/colorWhite"
         android:fontFamily="@font/gilroy_bold"

@@ -46,6 +46,7 @@ public class VerifyCodeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //TODO after verify sms code we must to go Registration Activity
+                startActivity(new Intent(VerifyCodeActivity.this,RegistrationActivity.class));
             }
         });
     }

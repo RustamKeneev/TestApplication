@@ -30,7 +30,7 @@ public class PhoneAuthActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(PhoneAuthActivity.this,VerifyCodeActivity.class));
-                finish();
+//                finish();
             }
         });
     }

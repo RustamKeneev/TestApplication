@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/register_arrow_back_image"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:paddingTop="@dimen/margin_8"
+            android:paddingBottom="@dimen/margin_8"
+            android:paddingRight="@dimen/margin_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/register_toolbar_text"
+            app:layout_constraintTop_toTopOf="@id/register_arrow_back_image"
+            app:layout_constraintBottom_toBottomOf="@id/register_arrow_back_image"
+            app:layout_constraintLeft_toRightOf="@id/register_arrow_back_image"
+            android:textColor="@color/colorBlack"
+            android:layout_marginLeft="@dimen/margin_8"
+            android:textSize="22sp"
+            android:fontFamily="@font/gilroy_bold"
+            android:text="@string/register_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.appcompat.widget.Toolbar>

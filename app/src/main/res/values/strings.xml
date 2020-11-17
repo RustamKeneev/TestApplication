@@ -28,4 +28,12 @@
     <string name="verify_sms_code_text">Подтвердить</string>
     <string name="verify_sms_code_toolbar">Подтверждения смс кода</string>
     <string name="next_text">Далее</string>
+    <string name="register_text">Регистрация</string>
+    <string name="first_name_text">Ваше фамилия</string>
+    <string name="first_name">Фамилия</string>
+    <string name="your_second_name">Ваше имя</string>
+    <string name="first_name_edit">Имя</string>
+    <string name="sex">Пол</string>
+    <string name="register_age_text">Возраст</string>
+    <string name="verify_text">Подтвердить</string>
 </resources>

@@ -40,15 +40,19 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
 
-    /* material design*/
+    //material design
     implementation 'com.google.android.material:material:1.2.1'
 
-    /* glide */
+    // glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
-    /* butter knife */
+    // butter knife
     implementation 'com.jakewharton:butterknife:10.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
+
+    //Nice spinner
+    //    implementation 'com.github.arcadefire:nice-spinner:1.4.4'
+
 
 }
