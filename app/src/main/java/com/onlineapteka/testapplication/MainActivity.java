@@ -2,9 +2,11 @@ package com.onlineapteka.testapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.onlineapteka.testapplication.login.PhoneAuthActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,6 +17,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setSplashScreenTime();
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (FirebaseAuth.getInstance().getCurrentUser() ==null){
+            startActivity(new Intent(this, PhoneAuthActivity.class));
+            finish();
+        }
     }
 
     private void setSplashScreenTime() {
