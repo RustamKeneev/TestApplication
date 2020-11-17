@@ -2,6 +2,7 @@ package com.onlineapteka.testapplication.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,10 @@ public class PhoneAuthActivity extends AppCompatActivity {
 
     private EditText mPhoneNumberEdit;
     private Button mContinuePhoneNumberButton;
+
+    public static void start(Context context){
+        context.startActivity(new Intent(context,PhoneAuthActivity.class));
+    }
 
 
     @Override
