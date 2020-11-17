@@ -2,6 +2,7 @@ package com.onlineapteka.testapplication.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
+import com.google.firebase.auth.PhoneAuthProvider;
 import com.onlineapteka.testapplication.R;
 
 public class VerifyCodeActivity extends AppCompatActivity {
@@ -19,6 +21,16 @@ public class VerifyCodeActivity extends AppCompatActivity {
     private ProgressBar mVerifyProgressBar;
     private Button mNextButton;
 
+
+
+
+    private static final String PHONE_NUMBER = "phonenumber";
+
+    public static void start(Context context, String phoneNumber) {
+        Intent intent = new Intent(context, VerifyCodeActivity.class);
+        intent.putExtra(PHONE_NUMBER, phoneNumber);
+        context.startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
