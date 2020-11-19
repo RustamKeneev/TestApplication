@@ -1,6 +1,7 @@
 package com.onlineapteka.testapplication.login;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -19,10 +20,18 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.onlineapteka.testapplication.MainActivity;
 import com.onlineapteka.testapplication.R;
 
+import com.onlineapteka.testapplication.util.Constants;
+
 import java.util.concurrent.TimeUnit;
+
+import static com.onlineapteka.testapplication.util.Constants.CLIENT;
 
 public class VerifyCodeActivity extends AppCompatActivity {
 
@@ -107,8 +116,32 @@ public class VerifyCodeActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             mNextButton.setVisibility(View.VISIBLE);
+                            mNextButton.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    db.collection(CLIENT)
+                                            .document(phoneNumber)
+                                            .addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                                                @Override
+                                                public void onEvent(@Nullable DocumentSnapshot value,
+                                                                    @Nullable FirebaseFirestoreException error) {
+                                                    if (value == null && value.exists()) {
+                                                        if (value.get("age") == null &&
+                                                                value.get("firstName") == null &&
+                                                                        value.get("secondName") ==null){
+                                                            RegistrationActivity.start(VerifyCodeActivity.this);
+                                                            finish();
+                                                        }
+                                                    }else {
+                                                        MainActivity.start(VerifyCodeActivity.this);
+                                                        finish();
+                                                    }
+                                                }
+                                            });
+                                }
+                            });
                         }else {
-
+                            Toast.makeText(VerifyCodeActivity.this,"Не успешно",Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -142,13 +175,6 @@ public class VerifyCodeActivity extends AppCompatActivity {
             }
         });
 
-        mNextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //TODO after verify sms code we must to go Registration Activity
-                startActivity(new Intent(VerifyCodeActivity.this,RegistrationActivity.class));
-            }
-        });
     }
 
     private void verifyVerificationCode(String code) {

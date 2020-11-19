@@ -19,10 +19,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="ExtraText">
-        <activity android:name=".login.VerifyCodeActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".login.RegistrationActivity" android:screenOrientation="portrait" />
-        <activity android:name=".login.PhoneAuthActivity" android:screenOrientation="portrait">
-        </activity>
+        <activity android:name=".professions.ProfessionsInMedicineActivity"></activity>
+        <activity
+            android:name=".login.VerifyCodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".login.RegistrationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".login.PhoneAuthActivity"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">

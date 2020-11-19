@@ -36,4 +36,6 @@
     <string name="sex">Пол</string>
     <string name="register_age_text">Возраст</string>
     <string name="verify_text">Подтвердить</string>
+    <string name="professions_in_medicine">Профессии в медицине</string>
+    <string name="search_text">Поиск</string>
 </resources>
