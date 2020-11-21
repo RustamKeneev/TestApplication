@@ -6,12 +6,23 @@ public class Professions {
     private String professionsTitle;
     private String professionsDescription;
     private String medicalProfessions;
-//
-//    public Professions(String id, int ic_logotype_auth, String аллерголог, String специалист_по_аллергии, String medicalProfessions) {
-//    }
+
+
+    public Professions(String professionsTitle, String professionsDescription, String medicalProfessions) {
+        this.professionsTitle = professionsTitle;
+        this.professionsDescription = professionsDescription;
+        this.medicalProfessions = medicalProfessions;
+    }
 
     public Professions(String id, int professionsImage, String professionsTitle, String professionsDescription, String medicalProfessions) {
         this.id = id;
+        this.professionsImage = professionsImage;
+        this.professionsTitle = professionsTitle;
+        this.professionsDescription = professionsDescription;
+        this.medicalProfessions = medicalProfessions;
+    }
+
+    public Professions(int professionsImage, String professionsTitle, String professionsDescription, String medicalProfessions) {
         this.professionsImage = professionsImage;
         this.professionsTitle = professionsTitle;
         this.professionsDescription = professionsDescription;

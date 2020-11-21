@@ -19,7 +19,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="ExtraText">
-        <activity android:name=".professions.ProfessionsInMedicineActivity"></activity>
+        <activity android:name=".test_display.TestDisplayActivity"></activity>
+        <activity android:name=".doctors.DoctorsActivity" />
+        <activity
+            android:name=".professions.ProfessionsInMedicineActivity"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".login.VerifyCodeActivity"
             android:screenOrientation="portrait" />
@@ -28,7 +32,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".login.PhoneAuthActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
