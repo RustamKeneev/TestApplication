@@ -4,13 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorGrey"
-    tools:context=".test_display.TestDisplayActivity">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_margin="@dimen/margin_4"
-        android:id="@+id/test_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    tools:context=".test_display.TestSecondActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

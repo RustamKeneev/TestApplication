@@ -3,6 +3,8 @@ package com.onlineapteka.testapplication.repository;
 
 import android.util.Log;
 
+import com.onlineapteka.testapplication.model.Doctor;
+import com.onlineapteka.testapplication.model.Professions;
 import com.onlineapteka.testapplication.model.ProfessionsCategory;
 import com.onlineapteka.testapplication.repository.remote.IRemoteStorage;
 import com.onlineapteka.testapplication.repository.remote.RemoteStorage;
@@ -12,6 +14,16 @@ import java.util.List;
 public class Storage implements IStorage {
     private IRemoteStorage remoteStorage = new RemoteStorage();
 
+
+    @Override
+    public void getProfessions(String professionsId, CallBack<Professions> callBack) {
+        remoteStorage.getProfessions(professionsId,callBack);
+    }
+
+    @Override
+    public void getDoctorsId(String doctorsId, CallBack<Doctor> doctorCallBack) {
+
+    }
 
     @Override
     public void getProfessionsCategory(CallBack<ProfessionsCategory> professionsCategoryCallBack) {
