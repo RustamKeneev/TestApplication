@@ -6,9 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".test_display.doctors_example.TestSecondActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/doctors_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

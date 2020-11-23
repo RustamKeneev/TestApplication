@@ -19,8 +19,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="ExtraText">
-        <activity android:name=".test_display.doctors_example.TestSecondActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".test_display.TestDisplayActivity" android:screenOrientation="portrait" />
         <activity android:name=".doctors.DoctorsActivity" android:screenOrientation="portrait"  />
         <activity
             android:name=".professions.ProfessionsInMedicineActivity"

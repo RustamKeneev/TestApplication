@@ -30,6 +30,7 @@ public class RemoteStorage implements IRemoteStorage {
     private StorageReference storageReference = FirebaseStorage.getInstance().getReference();
 
     private List<ProfessionsCategory> professionsCategories;
+    private List<Doctor> doctors;
 
     private final String TABLE_PROFESSIONS_CATEGORIES = "medical_professions";
 
@@ -78,7 +79,28 @@ public class RemoteStorage implements IRemoteStorage {
 
     @Override
     public void getDoctors(String professionsId, IStorage.CallBack<Doctor> callBack) {
+        doctors = new ArrayList<>();
+        db.collection("doctors")
+                .whereEqualTo("id",professionsId)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()){
+                            for (QueryDocumentSnapshot documentSnapshot: task.getResult()){
+                                doctors.add(documentSnapshot.toObject(Doctor.class));
+                                doctors.get(doctors.size()-1).setId(documentSnapshot.getId());
+                                Log.d(TAG, "onComplete: Doctors" + documentSnapshot.getId() + "=>" + documentSnapshot.getData());
+                                Log.d(TAG, "onComplete: " + task.getResult());
+                            }
+                            callBack.onSuccess(doctors);
+                        }else {
+                            callBack.onFailure(task.getException().getMessage());
+                            Log.d("TAG", "Error getting documents: ", task.getException());
 
+                        }
+                    }
+                });
     }
 
 //
@@ -88,7 +110,7 @@ public class RemoteStorage implements IRemoteStorage {
 //    }
 
 
-    public void getTerapevts() {
+//    public void getTerapevts() {
 //        db.collection("doctors")
 //                .whereEqualTo("type_professions", "sidelka")
 //                .get()
@@ -104,5 +126,5 @@ public class RemoteStorage implements IRemoteStorage {
 //                        }
 //                    }
 //                });
-    }
+//    }
 }

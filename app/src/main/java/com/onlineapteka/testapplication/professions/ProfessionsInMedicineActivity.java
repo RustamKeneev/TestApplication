@@ -12,19 +12,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 
-import com.onlineapteka.testapplication.MainActivity;
 import com.onlineapteka.testapplication.R;
 import com.onlineapteka.testapplication.doctors.DoctorsActivity;
 import com.onlineapteka.testapplication.interfaces.OnItemClickListener;
+import com.onlineapteka.testapplication.model.Doctor;
 import com.onlineapteka.testapplication.model.Professions;
+import com.onlineapteka.testapplication.professions.recycler.ProfessionsAdapter;
+import com.onlineapteka.testapplication.professions.recycler.ProfessionsViewHolder;
 
 import java.util.ArrayList;
 
-public class ProfessionsInMedicineActivity extends AppCompatActivity  {
+public class ProfessionsInMedicineActivity extends AppCompatActivity implements ProfessionsViewHolder.IOnClickListener {
 
     private EditText mSearchProfessionsEdit;
     private RecyclerView mRecyclerView;
-    private ProfessionAdapter mProfessionsAdapter;
+    private ProfessionsAdapter mProfessionsAdapter;
     private ArrayList<Professions> mProfessions;
     private LinearLayoutManager linearLayoutManager;
     private ProfessionsViewModel mViewModel;
@@ -46,20 +48,20 @@ public class ProfessionsInMedicineActivity extends AppCompatActivity  {
     private void initViewModel() {
         mViewModel = ViewModelProviders.of(this).get(ProfessionsViewModel.class);
         mViewModel.getProfessions();
-        mViewModel.selectedProfessions.observe(this, new Observer<Pair<String, String>>() {
-            @Override
-            public void onChanged(Pair<String, String> stringStringPair) {
-                DoctorsActivity.startActivity(getApplicationContext(),stringStringPair.first,stringStringPair.second);
-            }
-        });
-        mViewModel.isLoadedLiveData.observe(this, new Observer<Boolean>() {
-            @Override
-            public void onChanged(Boolean aBoolean) {
-                if (aBoolean){
-                    initviews();
-                }
-            }
-        });
+//        mViewModel.selectedProfessions.observe(this, new Observer<Pair<String, String>>() {
+//            @Override
+//            public void onChanged(Pair<String, String> stringStringPair) {
+//                DoctorsActivity.startActivity(getBaseContext(),stringStringPair.first,stringStringPair.second);
+//            }
+//        });
+//        mViewModel.isLoadedLiveData.observe(this, new Observer<Boolean>() {
+//            @Override
+//            public void onChanged(Boolean aBoolean) {
+//                if (aBoolean){
+//                    initviews();
+//                }
+//            }
+//        });
     }
 
     private void initviews() {
@@ -71,17 +73,30 @@ public class ProfessionsInMedicineActivity extends AppCompatActivity  {
         mProfessions.add(new Professions("sidelka",R.drawable.ic_logotype_auth,"Сиделка","Специалист по уходу за пациентами в условиях дома","-"));
 //        mProfessions.add(new Professions("Уролог","Специалист по мочеполовой системы","Урология"));
 
-        mProfessionsAdapter = new ProfessionAdapter(this,mProfessions);
+        mProfessionsAdapter = new ProfessionsAdapter(this);
         mRecyclerView.setAdapter(mProfessionsAdapter);
         linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         mRecyclerView.setLayoutManager(linearLayoutManager);
-        mProfessionsAdapter.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                mViewModel.onProfessionsClick(position);
-            }
-        });
+        mProfessionsAdapter.updateList(mProfessions);
+//        mProfessionsAdapter.setOnItemClickListener(new OnItemClickListener() {
+//            @Override
+//            public void onItemClick(int position) {
+//                mViewModel.onProfessionsClick(position);
+////                Toast.makeText(ProfessionsInMedicineActivity.this,"Pressed"+ position,Toast.LENGTH_LONG).show();
+////                Intent intent = new Intent(ProfessionsInMedicineActivity.this, Doctor.class);
+////                intent.putExtra("professionsId",position);
+////                startActivity(intent);
+////                mViewModel.onProfessionsClick(position);
+//            }
+//        });
     }
 
 
+    @Override
+    public void onClick(String position, String title) {
+        Intent intent = new Intent(ProfessionsInMedicineActivity.this, DoctorsActivity.class);
+        intent.putExtra("professionsId",position);
+        intent.putExtra("professionsName",title);
+        startActivity(intent);
+    }
 }

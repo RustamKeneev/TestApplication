@@ -12,7 +12,6 @@ import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 import com.onlineapteka.testapplication.login.PhoneAuthActivity;
 import com.onlineapteka.testapplication.professions.ProfessionsInMedicineActivity;
-import com.onlineapteka.testapplication.test_display.TestDisplayActivity;
 
 public class MainActivity extends AppCompatActivity {
 
