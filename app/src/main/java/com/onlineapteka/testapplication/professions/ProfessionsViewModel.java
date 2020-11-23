@@ -21,19 +21,18 @@ public class ProfessionsViewModel extends ViewModel {
 
 
     public void getProfessions() {
-//        App.storage.getProfessionsCategory(new IStorage.CallBack<Professions>() {
-//            @Override
-//            public void onSuccess(List<Professions> data) {
-//                professions.addAll(data);
-//                Log.e("ololo", "onSuccess: getProfessions "+ data.size() );
-//            }
-//
-//            @Override
-//            public void onFailure(String message) {
-//
-//            }
-//        });
+        App.storage.getProfessions(new IStorage.CallBack<Professions>() {
+            @Override
+            public void onSuccess(List<Professions> data) {
+                professions.addAll(data);
 
+            }
+
+            @Override
+            public void onFailure(String message) {
+
+            }
+        });
     }
 
     public void onProfessionsClick(int position) {

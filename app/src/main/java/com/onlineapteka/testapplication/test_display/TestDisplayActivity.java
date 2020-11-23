@@ -2,7 +2,6 @@ package com.onlineapteka.testapplication.test_display;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,18 +14,13 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.storage.FirebaseStorage;
-import com.onlineapteka.testapplication.App;
 import com.onlineapteka.testapplication.R;
 import com.onlineapteka.testapplication.model.Professions;
-import com.onlineapteka.testapplication.model.ProfessionsCategory;
-import com.onlineapteka.testapplication.repository.IStorage;
 import com.onlineapteka.testapplication.test_display.adapter.TestDisplayAdapter;
 import com.onlineapteka.testapplication.test_display.adapter.TestDisplayViewHolder;
+import com.onlineapteka.testapplication.test_display.doctors_example.TestSecondActivity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class TestDisplayActivity extends AppCompatActivity implements TestDisplayViewHolder.IOnClickListener {
 
@@ -47,36 +41,36 @@ public class TestDisplayActivity extends AppCompatActivity implements TestDispla
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private void initViewModels() {
-        db.collection("doctors")
-                .whereEqualTo("type_professions", "Клинический психолог")
-                .get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        for (QueryDocumentSnapshot document : task.getResult()) {
-                            Log.d("TAG", document.getId() + " => " + document.getData());
-                        }
-                    } else {
-                        Log.d("TAG", "Error getting documents: ", task.getException());
-                    }
-                });
-        db.collection("doctors")
-                .whereEqualTo("type_professions", "Сиделка")
-                .get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        for (QueryDocumentSnapshot document : task.getResult()) {
-                            Log.d("TAG", document.getId() + " => " + document.getData());
-                        }
-                    } else {
-                        Log.d("TAG", "Error getting documents: ", task.getException());
-                    }
-                });
-        db.collection("doctors").document("id").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-
-            }
-        });
+//        db.collection("doctors")
+//                .whereEqualTo("id", "clinical_psychologist")
+//                .get()
+//                .addOnCompleteListener(task -> {
+//                    if (task.isSuccessful()) {
+//                        for (QueryDocumentSnapshot document : task.getResult()) {
+//                            Log.d("TAG", document.getId() + " => " + document.getData());
+//                        }
+//                    } else {
+//                        Log.d("TAG", "Error getting documents: ", task.getException());
+//                    }
+//                });
+//        db.collection("doctors")
+//                .whereEqualTo("id", "sidelka")
+//                .get()
+//                .addOnCompleteListener(task -> {
+//                    if (task.isSuccessful()) {
+//                        for (QueryDocumentSnapshot document : task.getResult()) {
+//                            Log.d("TAG", document.getId() + " => " + document.getData());
+//                        }
+//                    } else {
+//                        Log.d("TAG", "Error getting documents: ", task.getException());
+//                    }
+//                });
+//        db.collection("doctors").document("id").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//
+//            }
+//        });
     }
 
     private void initViews() {

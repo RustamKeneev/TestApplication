@@ -11,13 +11,14 @@ public class Doctor {
     private String phoneNumber;
     private String doctorEducation;
     private String doctorInfo;
+    private String doctorFullName;
 
     public Doctor() {
     }
 
     public Doctor(String id, String firstName, String secondName, String lastName, String doctorImage,
-                  String doctorStatus, String doctorWorkLocation, String phoneNumber,
-                  String doctorEducation, String doctorInfo) {
+                  String doctorStatus, String doctorWorkLocation, String phoneNumber, String doctorEducation,
+                  String doctorInfo, String doctorFullName) {
         this.id = id;
         this.firstName = firstName;
         this.secondName = secondName;
@@ -28,6 +29,7 @@ public class Doctor {
         this.phoneNumber = phoneNumber;
         this.doctorEducation = doctorEducation;
         this.doctorInfo = doctorInfo;
+        this.doctorFullName = doctorFullName;
     }
 
     public String getId() {
@@ -108,5 +110,13 @@ public class Doctor {
 
     public void setDoctorInfo(String doctorInfo) {
         this.doctorInfo = doctorInfo;
+    }
+
+    public String getDoctorFullName() {
+        return doctorFullName;
+    }
+
+    public void setDoctorFullName(String doctorFullName) {
+        this.doctorFullName = doctorFullName;
     }
 }

@@ -14,6 +14,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.onlineapteka.testapplication.App;
+import com.onlineapteka.testapplication.model.Doctor;
 import com.onlineapteka.testapplication.model.Professions;
 import com.onlineapteka.testapplication.model.ProfessionsCategory;
 import com.onlineapteka.testapplication.repository.IStorage;
@@ -57,13 +58,9 @@ public class RemoteStorage implements IRemoteStorage {
     }
 
     @Override
-    public void getProfessions(String professionsId, IStorage.CallBack<Professions> callBack) {
-        getTerapevts();
-    }
-
-    public void getTerapevts() {
+    public void getProfessions(IStorage.CallBack<Professions> callBack) {
         db.collection("doctors")
-                .whereEqualTo("type_professions", "sidelka")
+                .whereEqualTo("type_professions", "Сиделка")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -77,5 +74,35 @@ public class RemoteStorage implements IRemoteStorage {
                         }
                     }
                 });
+    }
+
+    @Override
+    public void getDoctors(String professionsId, IStorage.CallBack<Doctor> callBack) {
+
+    }
+
+//
+//    @Override
+//    public void getProfessions(String professionsId, IStorage.CallBack<Professions> callBack) {
+//        getTerapevts();
+//    }
+
+
+    public void getTerapevts() {
+//        db.collection("doctors")
+//                .whereEqualTo("type_professions", "sidelka")
+//                .get()
+//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        if (task.isSuccessful()) {
+//                            for (QueryDocumentSnapshot document : task.getResult()) {
+//                                Log.d("TAG", document.getId() + " => " + document.getData());
+//                            }
+//                        } else {
+//                            Log.d("TAG", "Error getting documents: ", task.getException());
+//                        }
+//                    }
+//                });
     }
 }

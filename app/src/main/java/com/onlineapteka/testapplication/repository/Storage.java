@@ -15,14 +15,19 @@ public class Storage implements IStorage {
     private IRemoteStorage remoteStorage = new RemoteStorage();
 
 
+//    @Override
+//    public void getProfessions(String professionsId, CallBack<Professions> callBack) {
+//        remoteStorage.getProfessions(professionsId,callBack);
+//    }
+
     @Override
-    public void getProfessions(String professionsId, CallBack<Professions> callBack) {
-        remoteStorage.getProfessions(professionsId,callBack);
+    public void getProfessions(CallBack<Professions> professionsCallBack) {
+        remoteStorage.getProfessions(professionsCallBack);
     }
 
     @Override
     public void getDoctorsId(String doctorsId, CallBack<Doctor> doctorCallBack) {
-
+        remoteStorage.getDoctors(doctorsId,doctorCallBack);
     }
 
     @Override

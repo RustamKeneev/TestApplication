@@ -11,9 +11,9 @@ import javax.security.auth.callback.Callback;
 
 public interface IStorage {
 
-//    void getProfessions(CallBack<Professions> professionsCallBack);
+    void getProfessions(CallBack<Professions> professionsCallBack);
 
-    void getProfessions(String professionsId, CallBack<Professions> callBack);
+//    void getProfessions(String professionsId, CallBack<Professions> callBack);
     void getDoctorsId(String doctorsId, CallBack<Doctor> doctorCallBack);
     void getProfessionsCategory(CallBack<ProfessionsCategory> professionsCategoryCallBack);
 

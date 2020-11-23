@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, TestDisplayActivity.class));
-//                ProfessionsInMedicineActivity.start(MainActivity.this);
+//                startActivity(new Intent(MainActivity.this, TestDisplayActivity.class));
+                ProfessionsInMedicineActivity.start(MainActivity.this);
             }
         });
     }
