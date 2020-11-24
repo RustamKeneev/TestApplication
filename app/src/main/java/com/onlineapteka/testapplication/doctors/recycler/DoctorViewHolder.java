@@ -7,8 +7,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.onlineapteka.testapplication.R;
 import com.onlineapteka.testapplication.model.Doctor;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class DoctorViewHolder extends RecyclerView.ViewHolder {
@@ -17,7 +20,7 @@ public class DoctorViewHolder extends RecyclerView.ViewHolder {
     private TextView doctors_description;
     private TextView doctors_status;
     private TextView doctors_work_location;
-    private ImageView doctors_image;
+    private CircleImageView doctors_image;
 
 
     public DoctorViewHolder(@NonNull View itemView, final IOnClickListener onClickListener) {
@@ -40,7 +43,7 @@ public class DoctorViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void onBind(Doctor doctor){
-//        Glide.with(itemView.getContext()).load(doctor.getDoctorImage()).into(doctors_image);
+        Glide.with(itemView.getContext()).load(doctor.getDoctorImage()).into(doctors_image);
         doctors_title.setText(doctor.getDoctorFullName());
         doctors_description.setText(doctor.getDoctorEducation());
         doctors_status.setText(doctor.getDoctorStatus());

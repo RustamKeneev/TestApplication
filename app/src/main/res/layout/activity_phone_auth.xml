@@ -14,6 +14,10 @@
         app:layout_constraintRight_toRightOf="parent"
         layout="@layout/toolbar_auth"/>
 
+    <include
+        app:layout_constraintBottom_toTopOf="@id/toolbar_auth_include"
+        layout="@layout/toolbar_registration"/>
+
     <ImageView
         android:id="@+id/logo_image"
         android:layout_width="116dp"
