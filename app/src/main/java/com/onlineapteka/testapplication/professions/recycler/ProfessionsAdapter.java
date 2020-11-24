@@ -40,7 +40,7 @@ public class ProfessionsAdapter extends RecyclerView.Adapter<ProfessionsViewHold
             @Override
             public void onClick(View v) {
                 iOnClickListener.onClick(mProfessions.get(position).getId(),
-                        mProfessions.get(position).getProfessionsTitle());
+                        mProfessions.get(position).getMedicalProfessions());
             }
         });
     }

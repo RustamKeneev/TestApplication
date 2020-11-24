@@ -1,6 +1,7 @@
 package com.onlineapteka.testapplication.doctors;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,6 +11,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import com.onlineapteka.testapplication.R;
 import com.onlineapteka.testapplication.doctors.recycler.DoctorAdapter;
@@ -21,60 +24,67 @@ import java.util.List;
 
 public class DoctorsActivity extends AppCompatActivity implements DoctorViewHolder.IOnClickListener {
 
-    private static final String EXTRA_PROFESSIONS_ID = "professionsId";
-    private static final String EXTRA_PROFESSIONS_NAME = "professionsName";
-
     private DoctorsViewModel mViewModel;
     private RecyclerView mRecyclerView;
     private DoctorAdapter mDoctorAdapter;
     private List<Doctor> mDoctors;
+    private TextView mToolbarText;
+    private Toolbar mToolbar;
+
 
     private String subTitle;
     private String id;
 
-
     public static final String GET_STRING_EXTRA_PROFESSIONS_TITLE = "professionsName";
     public static final String GET_STRING_EXTRA_PROFESSIONS_ID = "professionsId";
-
-
-    public static void startActivity(Context context, String professionsId, String professionsName){
-        Intent intent = new Intent(context, DoctorsActivity.class);
-        intent.putExtra(DoctorsActivity.EXTRA_PROFESSIONS_ID,professionsId);
-        intent.putExtra(DoctorsActivity.EXTRA_PROFESSIONS_NAME,professionsName);
-        context.startActivity(intent);
-    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctors);
         Intent intent = getIntent();
+
         subTitle = intent.getStringExtra(GET_STRING_EXTRA_PROFESSIONS_TITLE);
         id = intent.getStringExtra(GET_STRING_EXTRA_PROFESSIONS_ID);
 
         initViews();
         initViewModels();
         mViewModel.getDoctorsList(id);
+        mViewModel.getDoctorsList(subTitle);
+
     }
 
     private void initViewModels() {
         mViewModel = ViewModelProviders.of(this).get(DoctorsViewModel.class);
-//        mViewModel.getDoctorsList(getIntent().getStringExtra(DoctorsActivity.EXTRA_PROFESSIONS_ID));
         mViewModel.doctorsLiveData.observe(this, new Observer<List<Doctor>>() {
             @Override
             public void onChanged(List<Doctor> doctors) {
                 mDoctorAdapter.setData(doctors);
                 mDoctors = new ArrayList<>();
                 mDoctors.addAll(doctors);
-
-                Log.d("TAG", "onChanged: doctors size" + doctors.size());
             }
         });
     }
 
     private void initViews() {
         mRecyclerView = findViewById(R.id.doctors_recycler);
+        mToolbarText = findViewById(R.id.doctors_toolbar_text);
+        mToolbar = findViewById(R.id.doctors_toolbar);
+
+        mToolbarText.setText(subTitle);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_left);
+        if (getSupportActionBar() !=null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onBackPressed();
+                }
+            });
+        }
+
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mDoctorAdapter = new DoctorAdapter(this);
         mRecyclerView.setAdapter(mDoctorAdapter);
