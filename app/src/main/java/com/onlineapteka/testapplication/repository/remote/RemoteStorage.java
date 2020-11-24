@@ -58,10 +58,9 @@ public class RemoteStorage implements IRemoteStorage {
 
     }
 
-    @Override
-    public void getProfessions(IStorage.CallBack<Professions> callBack) {
+    private void fetchDoctorByType(String type) {
         db.collection("doctors")
-                .whereEqualTo("type_professions", "Сиделка")
+                .whereEqualTo("type", type)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -78,10 +77,17 @@ public class RemoteStorage implements IRemoteStorage {
     }
 
     @Override
+    public void getProfessions(IStorage.CallBack<Professions> callBack) {
+        fetchDoctorByType("urolog");
+        fetchDoctorByType("ginekolog");
+        fetchDoctorByType("terapevt");
+    }
+
+    @Override
     public void getDoctors(String professionsId, IStorage.CallBack<Doctor> callBack) {
         doctors = new ArrayList<>();
         db.collection("doctors")
-                .whereEqualTo("id",professionsId)
+                .whereEqualTo("type",professionsId)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override

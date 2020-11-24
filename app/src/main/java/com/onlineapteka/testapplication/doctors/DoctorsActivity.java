@@ -29,6 +29,13 @@ public class DoctorsActivity extends AppCompatActivity implements DoctorViewHold
     private DoctorAdapter mDoctorAdapter;
     private List<Doctor> mDoctors;
 
+    private String subTitle;
+    private String id;
+
+
+    public static final String GET_STRING_EXTRA_PROFESSIONS_TITLE = "professionsName";
+    public static final String GET_STRING_EXTRA_PROFESSIONS_ID = "professionsId";
+
 
     public static void startActivity(Context context, String professionsId, String professionsName){
         Intent intent = new Intent(context, DoctorsActivity.class);
@@ -42,13 +49,18 @@ public class DoctorsActivity extends AppCompatActivity implements DoctorViewHold
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctors);
+        Intent intent = getIntent();
+        subTitle = intent.getStringExtra(GET_STRING_EXTRA_PROFESSIONS_TITLE);
+        id = intent.getStringExtra(GET_STRING_EXTRA_PROFESSIONS_ID);
+
         initViews();
         initViewModels();
+        mViewModel.getDoctorsList(id);
     }
 
     private void initViewModels() {
         mViewModel = ViewModelProviders.of(this).get(DoctorsViewModel.class);
-        mViewModel.getDoctorsList(getIntent().getStringExtra(DoctorsActivity.EXTRA_PROFESSIONS_ID));
+//        mViewModel.getDoctorsList(getIntent().getStringExtra(DoctorsActivity.EXTRA_PROFESSIONS_ID));
         mViewModel.doctorsLiveData.observe(this, new Observer<List<Doctor>>() {
             @Override
             public void onChanged(List<Doctor> doctors) {

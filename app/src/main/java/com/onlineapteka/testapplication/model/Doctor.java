@@ -12,13 +12,14 @@ public class Doctor {
     private String doctorEducation;
     private String doctorInfo;
     private String doctorFullName;
+    private String type;
 
     public Doctor() {
     }
 
     public Doctor(String id, String firstName, String secondName, String lastName, String doctorImage,
                   String doctorStatus, String doctorWorkLocation, String phoneNumber, String doctorEducation,
-                  String doctorInfo, String doctorFullName) {
+                  String doctorInfo, String doctorFullName, String type) {
         this.id = id;
         this.firstName = firstName;
         this.secondName = secondName;
@@ -30,6 +31,7 @@ public class Doctor {
         this.doctorEducation = doctorEducation;
         this.doctorInfo = doctorInfo;
         this.doctorFullName = doctorFullName;
+        this.type = type;
     }
 
     public String getId() {
@@ -118,5 +120,13 @@ public class Doctor {
 
     public void setDoctorFullName(String doctorFullName) {
         this.doctorFullName = doctorFullName;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

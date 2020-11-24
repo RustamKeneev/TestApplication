@@ -70,8 +70,8 @@ public class ProfessionsInMedicineActivity extends AppCompatActivity implements 
 
         mProfessions = new ArrayList<>();
 
-        mProfessions.add(new Professions("sidelka",R.drawable.ic_logotype_auth,"Сиделка","Специалист по уходу за пациентами в условиях дома","-"));
-//        mProfessions.add(new Professions("Уролог","Специалист по мочеполовой системы","Урология"));
+        mProfessions.add(new Professions("terapevt",R.drawable.ic_logotype_auth,"Терапевт","Специалист по терпапии","Терапия"));
+        mProfessions.add(new Professions("urolog",R.drawable.ic_logotype_auth,"Уролог","Специалист по мочевыводящих путей","Урология"));
 
         mProfessionsAdapter = new ProfessionsAdapter(this);
         mRecyclerView.setAdapter(mProfessionsAdapter);

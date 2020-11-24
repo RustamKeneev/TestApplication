@@ -27,7 +27,6 @@ public class Storage implements IStorage {
 
     @Override
     public void getDoctorsId(String doctorsId, CallBack<Doctor> doctorCallBack) {
-//        remoteStorage.getDoctors(doctorsId,doctorCallBack);
         remoteStorage.getDoctors(doctorsId, new CallBack<Doctor>() {
             @Override
             public void onSuccess(List<Doctor> data) {
