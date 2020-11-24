@@ -37,6 +37,13 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull DoctorViewHolder holder, int position) {
         holder.onBind(mDoctors.get(position));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickListener.onClick(mDoctors.get(position).getId(),
+                        mDoctors.get(position).getDoctorFullName());
+            }
+        });
 
     }
 

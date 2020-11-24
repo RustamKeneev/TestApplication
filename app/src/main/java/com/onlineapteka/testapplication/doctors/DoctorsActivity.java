@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.onlineapteka.testapplication.R;
+import com.onlineapteka.testapplication.doctors.doctors_detail.DoctorDetailActivity;
 import com.onlineapteka.testapplication.doctors.recycler.DoctorAdapter;
 import com.onlineapteka.testapplication.doctors.recycler.DoctorViewHolder;
 import com.onlineapteka.testapplication.model.Doctor;
@@ -91,7 +92,8 @@ public class DoctorsActivity extends AppCompatActivity implements DoctorViewHold
     }
 
     @Override
-    public void onClick(int position) {
-
+    public void onClick(String position,String title) {
+        Intent intent = new Intent(DoctorsActivity.this, DoctorDetailActivity.class);
+        startActivity(intent);
     }
 }

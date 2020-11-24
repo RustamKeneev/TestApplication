@@ -30,16 +30,16 @@ public class DoctorViewHolder extends RecyclerView.ViewHolder {
         doctors_status = itemView.findViewById(R.id.doctors_status);
         doctors_work_location = itemView.findViewById(R.id.doctors_work_location);
         doctors_image = itemView.findViewById(R.id.doctors_image);
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClickListener.onClick(getAdapterPosition());
-            }
-        });
+//        itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onClickListener.onClick(getAdapterPosition());
+//            }
+//        });
     }
 
     public interface IOnClickListener{
-        void onClick(int position);
+        void onClick(String position,String title);
     }
 
     public void onBind(Doctor doctor){
