@@ -11,4 +11,6 @@ public interface IRemoteStorage {
     void getDoctors(String professionsId, IStorage.CallBack<Doctor> callBack);
 
     void getProfessions(IStorage.CallBack<Professions> callBack);
+
+    void getDoctor(String doctorId, IStorage.CallBack<Doctor> callBack);
 }

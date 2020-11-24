@@ -29,6 +29,11 @@ public class LocalStorage implements ILocalStorage{
     }
 
     @Override
+    public void getDoctor(String doctorId, IStorage.CallBack<Doctor> callBack) {
+
+    }
+
+    @Override
     public void getDoctors(String professionsId, IStorage.CallBack<Doctor> callBack) {
 
     }

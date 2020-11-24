@@ -84,6 +84,30 @@ public class RemoteStorage implements IRemoteStorage {
     }
 
     @Override
+    public void getDoctor(String doctorId, IStorage.CallBack<Doctor> callBack) {
+        doctors = new ArrayList<>();
+        db.collection("doctors")
+                .whereEqualTo("type",doctorId)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()){
+                            for (QueryDocumentSnapshot documentSnapshot: task.getResult()){
+                                doctors.add(documentSnapshot.toObject(Doctor.class));
+                                doctors.get(doctors.size()-1).setId(documentSnapshot.getId());
+                                Log.d(TAG, "onComplete: Doctors ID" + documentSnapshot.getId() + "=>" + documentSnapshot.getData());
+                                Log.d(TAG, "onComplete: Doctor RESULT " + task.getResult());
+                            }
+                            callBack.onSuccess(doctors);
+                        }else {
+                            callBack.onFailure(task.getException().getMessage());
+                        }
+                    }
+                });
+    }
+
+    @Override
     public void getDoctors(String professionsId, IStorage.CallBack<Doctor> callBack) {
         doctors = new ArrayList<>();
         db.collection("doctors")

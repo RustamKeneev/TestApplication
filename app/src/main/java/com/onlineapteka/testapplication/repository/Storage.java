@@ -1,24 +1,17 @@
 package com.onlineapteka.testapplication.repository;
 
 
-import android.util.Log;
-
 import com.onlineapteka.testapplication.model.Doctor;
 import com.onlineapteka.testapplication.model.Professions;
-import com.onlineapteka.testapplication.model.ProfessionsCategory;
 import com.onlineapteka.testapplication.repository.remote.IRemoteStorage;
 import com.onlineapteka.testapplication.repository.remote.RemoteStorage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Storage implements IStorage {
     private IRemoteStorage remoteStorage = new RemoteStorage();
-
-
-//    @Override
-//    public void getProfessions(String professionsId, CallBack<Professions> callBack) {
-//        remoteStorage.getProfessions(professionsId,callBack);
-//    }
+    private List<Doctor> mDoctors = new ArrayList<>();
 
     @Override
     public void getProfessions(CallBack<Professions> professionsCallBack) {
@@ -41,12 +34,13 @@ public class Storage implements IStorage {
     }
 
     @Override
-    public void getProfessionsCategory(CallBack<ProfessionsCategory> professionsCategoryCallBack) {
-        remoteStorage.getProfessionsCategory(new CallBack<ProfessionsCategory>() {
+    public void getDoctor(String doctorId, CallBack<Doctor> callBack) {
+        remoteStorage.getDoctor(doctorId, new CallBack<Doctor>() {
             @Override
-            public void onSuccess(List<ProfessionsCategory> data) {
-                professionsCategoryCallBack.onSuccess(data);
-                Log.d("TAG", "onSuccess: professionsCategoryCallBack" + data.size());
+            public void onSuccess(List<Doctor> data) {
+                callBack.onSuccess(data);
+                mDoctors.clear();
+                mDoctors.addAll(data);
             }
 
             @Override
@@ -55,4 +49,10 @@ public class Storage implements IStorage {
             }
         });
     }
+
+    @Override
+    public Doctor getSelectedDoctor(int position) {
+        return null;
+    }
+
 }

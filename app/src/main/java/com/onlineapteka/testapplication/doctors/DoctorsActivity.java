@@ -94,6 +94,8 @@ public class DoctorsActivity extends AppCompatActivity implements DoctorViewHold
     @Override
     public void onClick(String position,String title) {
         Intent intent = new Intent(DoctorsActivity.this, DoctorDetailActivity.class);
+        intent.putExtra("doctorId",position);
+        intent.putExtra("doctorTitle",title);
         startActivity(intent);
     }
 }
