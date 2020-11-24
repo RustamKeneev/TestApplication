@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorGrey"
     tools:context=".doctors.doctors_detail.DoctorDetailActivity">
 
     <include
-        android:id="@+id/toolbar_doctors_detail_include"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         layout="@layout/toolbar_doctors_detail"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <include
+        layout="@layout/layout_doctors_card"/>
+
+    <LinearLayout
+        android:layout_margin="@dimen/margin_8"
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+
+
+    </LinearLayout>
+</LinearLayout>

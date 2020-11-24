@@ -38,4 +38,5 @@
     <string name="verify_text">Подтвердить</string>
     <string name="professions_in_medicine">Профессии в медицине</string>
     <string name="search_text">Поиск</string>
+    <string name="call_to_doctor">Позвонить</string>
 </resources>
