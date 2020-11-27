@@ -39,4 +39,6 @@
     <string name="professions_in_medicine">Профессии в медицине</string>
     <string name="search_text">Поиск</string>
     <string name="call_to_doctor">Позвонить</string>
+    <string name="call_to_doctor_text">Позвонить</string>
+    <string name="send_message_to_doctor_text">Написать</string>
 </resources>
