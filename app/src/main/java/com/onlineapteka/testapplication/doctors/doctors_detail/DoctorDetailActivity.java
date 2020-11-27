@@ -26,6 +26,12 @@ public class DoctorDetailActivity extends AppCompatActivity {
     private TextView mToolbarText;
     private ImageView mDoctorImage;
     private TextView mSecondName;
+    private TextView mDoctorsDetailToolbarText;
+    private TextView mFirstNameText;
+    private TextView mLastNameText;
+    private TextView mDoctorStatusText;
+    private TextView mDoctorDetailWorkLocation;
+
 
 
     private String id;
@@ -45,9 +51,6 @@ public class DoctorDetailActivity extends AppCompatActivity {
         id = intent.getStringExtra(GET_STRING_EXTRA_DOCTORS_ID);
         title = intent.getStringExtra(GET_STRING_EXTRA_DOCTORS_TITLE);
         initViewModels();
-
-
-//        mViewModel.getDoctorDetail(title);
     }
 
 
@@ -67,14 +70,24 @@ public class DoctorDetailActivity extends AppCompatActivity {
         mToolbarText = findViewById(R.id.doctors_detail_toolbar_text);
         mDoctorImage = findViewById(R.id.doctors_detail_image);
         mSecondName = findViewById(R.id.second_name_text);
+        mDoctorsDetailToolbarText = findViewById(R.id.doctors_detail_toolbar_text);
+        mFirstNameText = findViewById(R.id.first_name_text);
+        mLastNameText = findViewById(R.id.last_name_text);
+        mDoctorStatusText = findViewById(R.id.doctor_status_text);
+        mDoctorDetailWorkLocation = findViewById(R.id.doctor_detail_work_location);
 
-        mSecondName.setText(doctor.getSecondName());
+        mToolbarText.setText(doctor.getDoctorEducation());
         Glide.with(this).load(doctor.getDoctorImage()).into(mDoctorImage);
+        mSecondName.setText(doctor.getSecondName());
+        mFirstNameText.setText(doctor.getFirstName());
+        mLastNameText.setText(doctor.getLastName());
+        mDoctorStatusText.setText(doctor.getDoctorStatus());
+        mDoctorDetailWorkLocation.setText(doctor.getDoctorWorkLocation());
 
 
 
 
-//        mToolbarText.setText(title);
+
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_left);
