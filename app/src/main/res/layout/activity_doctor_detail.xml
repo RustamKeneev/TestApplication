@@ -17,4 +17,6 @@
 
     <include
         layout="@layout/layout_contact_us"/>
+
+    <include layout="@layout/layout_doctor_about" />
 </LinearLayout>

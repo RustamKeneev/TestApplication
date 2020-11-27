@@ -46,7 +46,7 @@ public class DoctorViewHolder extends RecyclerView.ViewHolder {
         });
         Glide.with(itemView.getContext()).load(doctor.getDoctorImage()).into(doctors_image);
         doctors_title.setText(doctor.getDoctorFullName());
-        doctors_description.setText(doctor.getDoctorEducation());
+        doctors_description.setText(doctor.getDoctor_type());
         doctors_status.setText(doctor.getDoctorStatus());
         doctors_work_location.setText(doctor.getDoctorWorkLocation());
     }
