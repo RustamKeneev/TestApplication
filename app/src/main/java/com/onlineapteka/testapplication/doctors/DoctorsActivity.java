@@ -91,11 +91,12 @@ public class DoctorsActivity extends AppCompatActivity implements DoctorViewHold
         mRecyclerView.setAdapter(mDoctorAdapter);
     }
 
+
     @Override
-    public void onClick(String position,String title) {
+    public void onClick(String doctorID) {
         Intent intent = new Intent(DoctorsActivity.this, DoctorDetailActivity.class);
-        intent.putExtra("doctorId",position);
-        intent.putExtra("doctorTitle",title);
+        intent.putExtra("doctorId",doctorID);
+//        intent.putExtra("doctorTitle",title);
         startActivity(intent);
     }
 }

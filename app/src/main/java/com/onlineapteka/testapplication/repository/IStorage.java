@@ -12,6 +12,8 @@ public interface IStorage {
 
     void getDoctorsId(String doctorsId, CallBack<Doctor> doctorCallBack);
 
+    void getDoctorsById(String doctorId,SingleCallBack<Doctor> callBack);
+
     void getDoctor(String doctorId, CallBack<Doctor> callBack);
 
     Doctor getSelectedDoctor(int position);
@@ -23,4 +25,13 @@ public interface IStorage {
         void onFailure(String message);
 
     }
+    interface SingleCallBack<T>{
+
+        void onSuccess(T data);
+
+        void onFailure(String message);
+
+    }
+
+
 }

@@ -12,11 +12,14 @@ import java.util.List;
 public class DoctorDetailViewmodel  extends ViewModel {
     public MutableLiveData<Doctor> doctorMutableLiveData = new MutableLiveData<>();
 
-    public void getDoctorDetail(String doctorId){
-        App.storage.getDoctor(doctorId, new IStorage.CallBack<Doctor>() {
+    public void getDoctorId(String doctorId){
+
+        App.storage.getDoctorsById(doctorId,new IStorage.SingleCallBack<Doctor>() {
+
             @Override
-            public void onSuccess(List<Doctor> data) {
+            public void onSuccess(Doctor data) {
                 doctorMutableLiveData.setValue((Doctor) data);
+
             }
 
             @Override

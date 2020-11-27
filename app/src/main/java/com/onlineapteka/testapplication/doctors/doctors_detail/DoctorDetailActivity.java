@@ -7,13 +7,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.onlineapteka.testapplication.App;
 import com.onlineapteka.testapplication.R;
 import com.onlineapteka.testapplication.model.Doctor;
+
+import java.util.List;
 
 public class DoctorDetailActivity extends AppCompatActivity {
 
@@ -36,18 +40,20 @@ public class DoctorDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_detail);
-        initViewModels();
 
         Intent intent = getIntent();
         id = intent.getStringExtra(GET_STRING_EXTRA_DOCTORS_ID);
         title = intent.getStringExtra(GET_STRING_EXTRA_DOCTORS_TITLE);
+        initViewModels();
 
-        mViewModel.getDoctorDetail(id);
-        mViewModel.getDoctorDetail(title);
+
+//        mViewModel.getDoctorDetail(title);
     }
+
 
     private void initViewModels() {
       mViewModel = ViewModelProviders.of(this).get(DoctorDetailViewmodel.class);
+      mViewModel.getDoctorId(id);
       mViewModel.doctorMutableLiveData.observe(this, new Observer<Doctor>() {
           @Override
           public void onChanged(Doctor doctor) {
@@ -60,13 +66,10 @@ public class DoctorDetailActivity extends AppCompatActivity {
         mToolbar = findViewById(R.id.doctors_detail_toolbar);
         mToolbarText = findViewById(R.id.doctors_detail_toolbar_text);
         mDoctorImage = findViewById(R.id.doctors_detail_image);
-
         mSecondName = findViewById(R.id.second_name_text);
 
         mSecondName.setText(doctor.getSecondName());
-
-
-//        Glide.with(this).load(doctor.getDoctorImage()).into(mDoctorImage);
+        Glide.with(this).load(doctor.getDoctorImage()).into(mDoctorImage);
 
 
 

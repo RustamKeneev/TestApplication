@@ -14,6 +14,6 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-        storage = new Storage();
+        storage = new Storage(iLocalStorage);
     }
 }

@@ -21,7 +21,7 @@ public class DoctorViewHolder extends RecyclerView.ViewHolder {
     private TextView doctors_status;
     private TextView doctors_work_location;
     private CircleImageView doctors_image;
-
+    private IOnClickListener onClickListener;
 
     public DoctorViewHolder(@NonNull View itemView, final IOnClickListener onClickListener) {
         super(itemView);
@@ -30,19 +30,20 @@ public class DoctorViewHolder extends RecyclerView.ViewHolder {
         doctors_status = itemView.findViewById(R.id.doctors_status);
         doctors_work_location = itemView.findViewById(R.id.doctors_work_location);
         doctors_image = itemView.findViewById(R.id.doctors_image);
-//        itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                onClickListener.onClick(getAdapterPosition());
-//            }
-//        });
+        this.onClickListener = onClickListener;
     }
 
     public interface IOnClickListener{
-        void onClick(String position,String title);
+        void onClick(String doctorID);
     }
 
     public void onBind(Doctor doctor){
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickListener.onClick(doctor.getId());
+            }
+        });
         Glide.with(itemView.getContext()).load(doctor.getDoctorImage()).into(doctors_image);
         doctors_title.setText(doctor.getDoctorFullName());
         doctors_description.setText(doctor.getDoctorEducation());
