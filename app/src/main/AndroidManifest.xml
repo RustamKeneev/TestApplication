@@ -20,7 +20,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="ExtraText">
-        <activity android:name=".doctors.doctors_detail.DoctorDetailActivity"
+        <activity android:name=".chat.ChatMainActivity"></activity>
+        <activity
+            android:name=".doctors.doctors_detail.DoctorDetailActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".doctors.DoctorsActivity"

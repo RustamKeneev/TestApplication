@@ -10,12 +10,14 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.onlineapteka.testapplication.chat.ChatMainActivity;
 import com.onlineapteka.testapplication.login.PhoneAuthActivity;
 import com.onlineapteka.testapplication.professions.ProfessionsInMedicineActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button button;
+    private Button chatButton;
 
 
     public static void start(Context context){
@@ -33,11 +35,19 @@ public class MainActivity extends AppCompatActivity {
 
     private void initViews() {
         button = findViewById(R.id.button);
+        chatButton = findViewById(R.id.button_chat);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(MainActivity.this, TestDisplayActivity.class));
                 ProfessionsInMedicineActivity.start(MainActivity.this);
+            }
+        });
+
+        chatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,ChatMainActivity.class));
             }
         });
     }
