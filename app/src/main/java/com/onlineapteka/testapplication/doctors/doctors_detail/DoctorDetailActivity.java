@@ -1,25 +1,25 @@
 package com.onlineapteka.testapplication.doctors.doctors_detail;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
-import com.onlineapteka.testapplication.App;
 import com.onlineapteka.testapplication.R;
 import com.onlineapteka.testapplication.model.Doctor;
 
-import java.util.List;
 
 public class DoctorDetailActivity extends AppCompatActivity {
 
@@ -28,7 +28,6 @@ public class DoctorDetailActivity extends AppCompatActivity {
     private TextView mToolbarText;
     private ImageView mDoctorImage;
     private TextView mSecondName;
-    private TextView mDoctorsDetailToolbarText;
     private TextView mFirstNameText;
     private TextView mLastNameText;
     private TextView mDoctorStatusText;
@@ -39,14 +38,14 @@ public class DoctorDetailActivity extends AppCompatActivity {
     private CardView mSendMessageToDoctorCard;
 
 
-
     private String id;
     private String title;
-
+    private String phoneNumber;
 
 
     public static final String GET_STRING_EXTRA_DOCTORS_TITLE = "doctorTitle";
     public static final String GET_STRING_EXTRA_DOCTORS_ID = "doctorId";
+    private final int REQUEST_PERMISSION_PHONE_STATE=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,14 +60,14 @@ public class DoctorDetailActivity extends AppCompatActivity {
 
 
     private void initViewModels() {
-      mViewModel = ViewModelProviders.of(this).get(DoctorDetailViewmodel.class);
-      mViewModel.getDoctorId(id);
-      mViewModel.doctorMutableLiveData.observe(this, new Observer<Doctor>() {
-          @Override
-          public void onChanged(Doctor doctor) {
-              initViews(doctor);
-          }
-      });
+        mViewModel = ViewModelProviders.of(this).get(DoctorDetailViewmodel.class);
+        mViewModel.getDoctorId(id);
+        mViewModel.doctorMutableLiveData.observe(this, new Observer<Doctor>() {
+            @Override
+            public void onChanged(Doctor doctor) {
+                initViews(doctor);
+            }
+        });
     }
 
     private void initViews(Doctor doctor) {
@@ -76,7 +75,7 @@ public class DoctorDetailActivity extends AppCompatActivity {
         mToolbarText = findViewById(R.id.doctors_detail_toolbar_text);
         mDoctorImage = findViewById(R.id.doctors_detail_image);
         mSecondName = findViewById(R.id.second_name_text);
-        mDoctorsDetailToolbarText = findViewById(R.id.doctors_detail_toolbar_text);
+
         mFirstNameText = findViewById(R.id.first_name_text);
         mLastNameText = findViewById(R.id.last_name_text);
         mDoctorStatusText = findViewById(R.id.doctor_status_text);
@@ -100,7 +99,19 @@ public class DoctorDetailActivity extends AppCompatActivity {
         mCallToDoctorCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(DoctorDetailActivity.this,"Pressed Call",Toast.LENGTH_LONG).show();
+                Toast.makeText(DoctorDetailActivity.this, "Pressed Call", Toast.LENGTH_LONG).show();
+                phoneNumber = doctor.getPhoneNumber();
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNumber));
+
+                if (ActivityCompat.checkSelfPermission(DoctorDetailActivity.this,
+                        Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+
+                    ActivityCompat.requestPermissions(DoctorDetailActivity.this,
+                            new String[]{Manifest.permission.CALL_PHONE},
+                            1);
+                    return;
+                }
+                startActivity(intent);
 
             }
         });
@@ -111,9 +122,6 @@ public class DoctorDetailActivity extends AppCompatActivity {
                 Toast.makeText(DoctorDetailActivity.this,"Pressed Send Message",Toast.LENGTH_LONG).show();
             }
         });
-
-
-
 
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -126,6 +134,22 @@ public class DoctorDetailActivity extends AppCompatActivity {
                     onBackPressed();
                 }
             });
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case 1: {
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                } else {
+                    Toast.makeText(DoctorDetailActivity.this,
+                            "Чтобы осуществлять звонок разрешите на чтение вашего внешнего хранилища ",
+                            Toast.LENGTH_LONG).show();
+                }
+                return;
+            }
         }
     }
 }
